@@ -7,4 +7,4 @@ def process_and_display_image(image):
     enhanced_gray = enhance_image_gray(image)
     dilated = dilate_image(enhanced_gray)
     erosed_in_dilated = resize_image(erode_image(dilated))
-    return erosed_in_dilated  # or any other processed version that gives the best results
+    return erosed_in_dilated
