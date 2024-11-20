@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import os
 from werkzeug.utils import secure_filename
 from src.config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS, UPLOAD_HTML
-from src.services.ocr_service import detect_text_with_coordinates, detect_text_in_pdf
+from src.services.ocr_service import detect_text_in_pdf, detect_text_with_coordinates
 from src.services.chatgpt_service import send_to_chatgpt
 
 app = Flask(__name__)

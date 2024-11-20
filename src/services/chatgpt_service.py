@@ -12,10 +12,31 @@ def send_to_chatgpt(text_results: List[Dict]) -> str:
         else:
             prompt += f"Documento: {result['filename']}\n{result['text_data']}\n\n"
 
+
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": """Você é um professor experiente..."""},
+            {"role": "system", "content": """Você é um professor experiente e vai analisar esta prova.
+            
+            Suas responsabilidades são:
+            1. Identifique cada questão pelo seu cabeçalho/enunciado
+            2. Para cada questão identificada:
+               - Apresente o cabeçalho/enunciado original
+               - Se não respondida: forneça a resposta correta com explicação
+               - Se respondida: indique se está certa ou errada
+               - Para questões erradas: explique o erro e forneça a resposta correta
+            3. Atribua uma nota final considerando o desempenho geral
+            
+            Formato da sua resposta para cada questão:
+            === QUESTÃO X (cabeçalho original) ===
+            - Status: [Respondida/Não respondida]
+            - Avaliação: [Correta/Incorreta/Resposta sugerida]
+            - Explicação detalhada
+            - Resposta correta (quando aplicável)
+            
+            Ao final:
+            - Nota final
+            - Feedback construtivo"""},
             {"role": "user", "content": prompt}
         ]
     )
