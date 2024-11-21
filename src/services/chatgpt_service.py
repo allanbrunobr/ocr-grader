@@ -27,6 +27,8 @@ def send_to_chatgpt(text_results: List[Dict]) -> str:
                - Para questões erradas: explique o erro e forneça a resposta correta
             3. Atribua uma nota final considerando o desempenho geral
             
+            Importante: Ao reproduzir qualquer texto, corrija erros óbvios de OCR para melhor legibilidade.
+            
             Formato da sua resposta para cada questão:
             === QUESTÃO X (cabeçalho original) ===
             - Status: [Respondida/Não respondida]

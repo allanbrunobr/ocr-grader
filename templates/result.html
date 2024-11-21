@@ -55,7 +55,13 @@
     <h2>Correção do Professor</h2>
     <pre>{{ analysis }}</pre>
 </div>
-
+<div class="audio-section">
+    <h3>Ouça a análise em formato podcast:</h3>
+    <audio controls>
+        <source src="{{ url_for('static', filename=audio_path) }}" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+</div>
 <div class="back-button">
     <a href="/">Nova Correção</a>
 </div>
